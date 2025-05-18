@@ -9,6 +9,13 @@ GOOGLE_APPLICATION_CREDENTIALS=C:\Path\to\gcloud\application_default_credentials
 OPENAI_API_KEY=sk-proj-asdfghjkl
 VECTOR_DB_URI=http://localhost:19530
 ```
+## Uporaba
+Vse potrebne funkcije so v **db_service**. *query* in *store_text* sprejmejo navadne nize. *store_pdf_files* in *store_msoffice_files* sprejmejo datateke odprte kot tok bajtov, npr. z uporabo funkcije:
+```
+open("path/to/something.pdf", "rb")
+```
+**Važno je, da so dokumenti odprti v binarni obliki in NE v tekstovni.**
+
 ## Database
 Možna sta dva načina uporabe vektorske podatkovne baze: lokalno s shranjevanjem trajnega stanja kar direktno v .db datoteko, ali s povezavo na vsebnik z Milvus/Zillis sliko.
 ### Lokalna vektorska podatkovna baza

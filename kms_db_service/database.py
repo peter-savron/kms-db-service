@@ -1,6 +1,6 @@
 
 from langchain_milvus import BM25BuiltInFunction, Milvus
-from embedding_openai import *
+from embedding_openai import embeddings
 # from kms_db import use_local_db
 from dotenv import load_dotenv
 import os

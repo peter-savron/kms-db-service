@@ -1,4 +1,5 @@
 # kms-db-service
+Program deluje na Windowsih samo v okrnjeni obliki: MilvusLite ni na razpolago in tudi markitdown. Raje zaženite program na WSL-ju.
 ## Potrbni uporabški računi
 Da embeddingi delujejo, je potrebno imeti odprt plačniški račun pri podjetju OpenAI. 
 ## .env file
@@ -10,11 +11,15 @@ OPENAI_API_KEY=sk-proj-asdfghjkl
 VECTOR_DB_URI=http://localhost:19530
 ```
 ## Uporaba
-Vse potrebne funkcije so v **db_service**. *query* in *store_text* sprejmejo navadne nize. *store_pdf_files* in *store_msoffice_files* sprejmejo datateke odprte kot tok bajtov, npr. z uporabo funkcije:
+Vse potrebne funkcije so v **db_service**. *query* in *store_text* sprejmejo vsebino, ki se bo shranila v podatkovno bazo kot navadne nize. *store_pdf_files* in *store_msoffice_files* sprejmejo kot vsebino, ki bo hranjena v podatkovni bazi datatoke odprte kot tok bajtov, npr. z uporabo funkcije:
 ```
 open("path/to/something.pdf", "rb")
 ```
 **Važno je, da so dokumenti odprti v binarni obliki in NE v tekstovni.**
+Metapodatki so podani kot slovar(niz, niz) npr.:
+```
+metadata = dict(avtor="Peter", leto="2025", type="pdf document")
+```
 
 ## Database
 Možna sta dva načina uporabe vektorske podatkovne baze: lokalno s shranjevanjem trajnega stanja kar direktno v .db datoteko, ali s povezavo na vsebnik z Milvus/Zillis sliko.
